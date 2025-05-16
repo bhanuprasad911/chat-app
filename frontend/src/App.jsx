@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import SignupPage from "./pages/SignupPage.jsx";
-import LoginPage from "./pages/Loginpage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import NotificationPage from "./pages/NotificationPage.jsx";
 import CallPage from "./pages/CallPage.jsx";
