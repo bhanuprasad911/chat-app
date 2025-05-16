@@ -13,19 +13,14 @@ import chatRouter from "./routes/chat.route.js";
 import authMiddleware from "./middlewares/authMiddleware.js";
 
 const app = express();
-const originalUse = app.use.bind(app);
-app.use = function (path, ...args) {
-  if (typeof path === 'string' && !path.startsWith('/') && !path.startsWith('*')) {
-    console.error(`Invalid route path passed to app.use():`, path);
-  }
-  return originalUse(path, ...args);
-};
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
-);
+if (process.env.NODE_ENV !== "production") {
+  app.use(
+    cors({
+      origin: "http://localhost:5173",
+      credentials: true,
+    })
+  );
+}
 
 const port = process.env.PORT;
 const __filename = fileURLToPath(import.meta.url);
